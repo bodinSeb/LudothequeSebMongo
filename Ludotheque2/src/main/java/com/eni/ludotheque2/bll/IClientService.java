@@ -7,10 +7,9 @@ import java.util.List;
 
 public interface IClientService {
     void ajouterClient(Client client);
-    //Client findClientById(int id);
+    Client findClientById(String id);
     List<Client> findClientByNom(String nom);
     List<Client> findAllClient();
     void updateClient(Client client);
-    //void updateAdresseClient(int idClient, Adresse adresse);
-    //void deleteClient(int idClient);
+    void deleteClient(String idClient);
 }

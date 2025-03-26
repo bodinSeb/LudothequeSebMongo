@@ -7,5 +7,5 @@ import java.awt.print.Book;
 import java.util.List;
 
 public interface IClientRepository extends MongoRepository<Client, String> {
-    List<Client> findClientByNom(String nom);
+    List<Client> findByNomContaining(String nom);
 }

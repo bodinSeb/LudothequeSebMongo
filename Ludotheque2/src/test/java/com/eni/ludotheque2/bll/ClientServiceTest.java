@@ -3,7 +3,6 @@ package com.eni.ludotheque2.bll;
 import com.eni.ludotheque2.bo.Adresse;
 import com.eni.ludotheque2.bo.Client;
 import com.eni.ludotheque2.dal.IClientRepository;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class ClientServiceTest {
 //    @MockitoBean
 //    private IClientRepository clientRepository;
 
-    @Transactional
+    //@Transactional
     @Test
     @DisplayName("Ajout client cas positif")
     public void testAjouterClientCasPositif(){
@@ -59,12 +58,12 @@ public class ClientServiceTest {
         assertThat(clients.size()).isEqualTo(1);
     }
 
-    @Transactional
+    //@Transactional
     @Test
     @DisplayName("Modifier un client")
     public void testUpdateClient(){
         //Act
-        Client client = clientService.findClientById(1);
+        Client client = clientService.findClientById("1");
         client.setPrenom("prenomModif");
         clientRepository.save(client);
 
@@ -72,15 +71,15 @@ public class ClientServiceTest {
         assertEquals("prenomModif", client.getPrenom());
     }
 
-    @Transactional
+    //@Transactional
     @Test
     @DisplayName("Modifier l'adresse d'un client")
     public void testUpdateAdresseClient(){
         //Act
-        Client client = clientService.findClientById(1);
+        Client client = clientService.findClientById("1");
 
         Adresse adresse = new Adresse(100, "rue de" +100, "79300", "TestModifie");
-        clientService.updateAdresseClient(1,adresse);
+       // clientService.updateAdresseClient(1,adresse);
 
         //Assert
         assertEquals("TestModifie", client.getAdresse().getVille());
