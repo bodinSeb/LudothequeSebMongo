@@ -1,7 +1,9 @@
 package com.eni.ludotheque2.dal;
 
 import com.eni.ludotheque2.bo.Exemplaire;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface IExemplaireRepository extends JpaRepository<Exemplaire, Integer> {
+import java.awt.print.Book;
+
+public interface IExemplaireRepository extends MongoRepository<Exemplaire, String> {
 }

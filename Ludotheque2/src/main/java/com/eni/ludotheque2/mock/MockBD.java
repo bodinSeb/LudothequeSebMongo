@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 public class MockBD
-        //implements CommandLineRunner
+        implements CommandLineRunner
 {
 
     @Autowired
@@ -33,10 +33,10 @@ public class MockBD
     @Autowired
     IUtilisateurRepository repoUtilisateur;
 
-//    @Override
-//    public void run(String... args) throws Exception {
-//        alimBD();  // Appel de la méthode alimBD() au démarrage de l'application
-//    }
+    @Override
+    public void run(String... args) throws Exception {
+        alimBD();  // Appel de la méthode alimBD() au démarrage de l'application
+    }
 
     public void alimBD() {
 
@@ -58,53 +58,53 @@ public class MockBD
         Genre genre4 = repoGenre.save(new Genre("Action"));
 
         // Créer un Jeu avec des genres associés
-        List<Genre> genresJeu1 = new ArrayList<>();
-        genresJeu1.add(genre1);
-        genresJeu1.add(genre2);
-        List<Genre> genresJeu2 = new ArrayList<>();
-        genresJeu2.add(genre2);
-        genresJeu2.add(genre3);
-        List<Genre> genresJeu3 = new ArrayList<>();
-        genresJeu3.add(genre3);
-        genresJeu3.add(genre4);
-
-        Jeu jeu1 = new Jeu("Stratégie suprême", "REF001", 1.0f);
-        jeu1.setAge_min(12);
-        jeu1.setDescription("Un jeu de stratégie où vous menez des armées à la guerre.");
-        jeu1.setDuree(90);
-        jeu1.setGenres(genresJeu1);
-
-        Jeu jeu2 = new Jeu("Skyjo", "REF002", 2.0f);
-        jeu2.setAge_min(4);
-        jeu2.setDescription("Un jeu de stratégie");
-        jeu2.setDuree(60);
-        jeu2.setGenres(genresJeu2);
-
-        Jeu jeu3 = new Jeu("Monopoly", "REF003", 3.0f);
-        jeu3.setAge_min(4);
-        jeu3.setDescription("Un jeu de stratégie");
-        jeu3.setDuree(180);
-        jeu3.setGenres(genresJeu3);
-        repoJeu.save(jeu1);
-        repoJeu.save(jeu2);
-        repoJeu.save(jeu3);
-
-        // Créer les exemplaires
-        Exemplaire exemplaire1 = new Exemplaire("CODEJeu101", true, jeu1);
-        Exemplaire exemplaire2 = new Exemplaire("CODEJeu102", true, jeu1);
-        Exemplaire exemplaire3 = new Exemplaire("CODEJeu201", true, jeu2);
-        Exemplaire exemplaire4 = new Exemplaire("CODEJeu301", true, jeu3);
-        Exemplaire exemplaire5 = new Exemplaire("CODEJeu302", true, jeu3);
-        exemplaire1.setLouable(false);
-        exemplaire2.setLouable(false);
-        exemplaire3.setLouable(false);
-        exemplaire4.setLouable(false);
-
-        repoExemplaire.save(exemplaire1);
-        repoExemplaire.save(exemplaire2);
-        repoExemplaire.save(exemplaire3);
-        repoExemplaire.save(exemplaire4);
-        repoExemplaire.save(exemplaire5);
+//        List<Genre> genresJeu1 = new ArrayList<>();
+//        genresJeu1.add(genre1);
+//        genresJeu1.add(genre2);
+//        List<Genre> genresJeu2 = new ArrayList<>();
+//        genresJeu2.add(genre2);
+//        genresJeu2.add(genre3);
+//        List<Genre> genresJeu3 = new ArrayList<>();
+//        genresJeu3.add(genre3);
+//        genresJeu3.add(genre4);
+//
+//        Jeu jeu1 = new Jeu("Stratégie suprême", "REF001", 1.0f);
+//        jeu1.setAge_min(12);
+//        jeu1.setDescription("Un jeu de stratégie où vous menez des armées à la guerre.");
+//        jeu1.setDuree(90);
+//        jeu1.setGenres(genresJeu1);
+//
+//        Jeu jeu2 = new Jeu("Skyjo", "REF002", 2.0f);
+//        jeu2.setAge_min(4);
+//        jeu2.setDescription("Un jeu de stratégie");
+//        jeu2.setDuree(60);
+//        jeu2.setGenres(genresJeu2);
+//
+//        Jeu jeu3 = new Jeu("Monopoly", "REF003", 3.0f);
+//        jeu3.setAge_min(4);
+//        jeu3.setDescription("Un jeu de stratégie");
+//        jeu3.setDuree(180);
+//        jeu3.setGenres(genresJeu3);
+//        repoJeu.save(jeu1);
+//        repoJeu.save(jeu2);
+//        repoJeu.save(jeu3);
+//
+//        // Créer les exemplaires
+//        Exemplaire exemplaire1 = new Exemplaire("CODEJeu101", true, jeu1);
+//        Exemplaire exemplaire2 = new Exemplaire("CODEJeu102", true, jeu1);
+//        Exemplaire exemplaire3 = new Exemplaire("CODEJeu201", true, jeu2);
+//        Exemplaire exemplaire4 = new Exemplaire("CODEJeu301", true, jeu3);
+//        Exemplaire exemplaire5 = new Exemplaire("CODEJeu302", true, jeu3);
+//        exemplaire1.setLouable(false);
+//        exemplaire2.setLouable(false);
+//        exemplaire3.setLouable(false);
+//        exemplaire4.setLouable(false);
+//
+//        repoExemplaire.save(exemplaire1);
+//        repoExemplaire.save(exemplaire2);
+//        repoExemplaire.save(exemplaire3);
+//        repoExemplaire.save(exemplaire4);
+//        repoExemplaire.save(exemplaire5);
 
         // Créer deux utilisateurs
         Utilisateur utilisateur1 = new Utilisateur("seb", "seb");
@@ -114,39 +114,39 @@ public class MockBD
         repoUtilisateur.save(utilisateur1);
         repoUtilisateur.save(utilisateur2);
 
-        //Création de Locations
-        Location location1 = new Location();
-        Date date1 = stringToDate("2025-02-25");
-        System.err.println("DATE1: " + date1);
-        location1.setDate_debut(date1);
-        location1.setExemplaire(exemplaire1);
-        location1.setTarif_jour(exemplaire1.getJeu().getTarif_jour());
-        location1.setClient(client1);
-
-        Location location2 = new Location();
-        Date date2 = stringToDate("2025-03-01");
-        location2.setDate_debut(date1);
-        location2.setDate_retour(date2);
-        location2.setExemplaire(exemplaire3);
-        location2.setTarif_jour(exemplaire3.getJeu().getTarif_jour());
-        location2.setClient(client1);
-
-        Location location3 = new Location();
-        location3.setDate_debut(date1);
-        location3.setExemplaire(exemplaire4);
-        location3.setTarif_jour(exemplaire4.getJeu().getTarif_jour());
-        location3.setClient(client2);
-
-        Location location4 = new Location();
-        location4.setDate_debut(date1);
-        location4.setExemplaire(exemplaire2);
-        location4.setTarif_jour(exemplaire2.getJeu().getTarif_jour());
-        location4.setClient(client2);
-
-        repoLoc.save(location1);
-        repoLoc.save(location2);
-        repoLoc.save(location3);
-        repoLoc.save(location4);
+//        //Création de Locations
+//        Location location1 = new Location();
+//        Date date1 = stringToDate("2025-02-25");
+//        System.err.println("DATE1: " + date1);
+//        location1.setDate_debut(date1);
+//        location1.setExemplaire(exemplaire1);
+//        location1.setTarif_jour(exemplaire1.getJeu().getTarif_jour());
+//        location1.setClient(client1);
+//
+//        Location location2 = new Location();
+//        Date date2 = stringToDate("2025-03-01");
+//        location2.setDate_debut(date1);
+//        location2.setDate_retour(date2);
+//        location2.setExemplaire(exemplaire3);
+//        location2.setTarif_jour(exemplaire3.getJeu().getTarif_jour());
+//        location2.setClient(client1);
+//
+//        Location location3 = new Location();
+//        location3.setDate_debut(date1);
+//        location3.setExemplaire(exemplaire4);
+//        location3.setTarif_jour(exemplaire4.getJeu().getTarif_jour());
+//        location3.setClient(client2);
+//
+//        Location location4 = new Location();
+//        location4.setDate_debut(date1);
+//        location4.setExemplaire(exemplaire2);
+//        location4.setTarif_jour(exemplaire2.getJeu().getTarif_jour());
+//        location4.setClient(client2);
+//
+//        repoLoc.save(location1);
+//        repoLoc.save(location2);
+//        repoLoc.save(location3);
+//        repoLoc.save(location4);
 
         System.err.println("Mock");
 

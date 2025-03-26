@@ -26,10 +26,10 @@ public class ClientService implements IClientService{
         clientRepository.save(client);
     }
 
-    @Override
-    public Client findClientById(int id) {
-        return clientRepository.findById(id).get();
-    }
+//    @Override
+//    public Client findClientById(int id) {
+//        return clientRepository.findById(id).get();
+//    }
     @Override
     public List<Client> findClientByNom(String nom) {
         return clientRepository.findClientByNom(nom);
@@ -46,21 +46,21 @@ public class ClientService implements IClientService{
         clientRepository.save(client);
     }
 
-    @Override
-    public void updateAdresseClient(int idClient, Adresse adresse) {
-        Client clientBase =  clientRepository.findById(idClient).get();
-        int idAdresse = clientBase.getAdresse().getId();
-        Adresse adresseBase = adresseRepository.findById(idAdresse).get();
-        System.err.println("Adresse" + adresseBase );
-        adresseBase.setNum_rue(adresse.getNum_rue());
-        adresseBase.setRue(adresse.getRue());
-        adresseBase.setCode_postal(adresse.getCode_postal());
-        adresseBase.setVille(adresse.getVille());
-        adresseRepository.save(adresseBase);
-    }
+//    @Override
+//    public void updateAdresseClient(int idClient, Adresse adresse) {
+//        Client clientBase =  clientRepository.findById(idClient).get();
+//        int idAdresse = clientBase.getAdresse().getId();
+//        Adresse adresseBase = adresseRepository.findById(idAdresse).get();
+//        System.err.println("Adresse" + adresseBase );
+//        adresseBase.setNum_rue(adresse.getNum_rue());
+//        adresseBase.setRue(adresse.getRue());
+//        adresseBase.setCode_postal(adresse.getCode_postal());
+//        adresseBase.setVille(adresse.getVille());
+//        adresseRepository.save(adresseBase);
+//    }
 
-    @Override
-    public void deleteClient(int idClient) {
-        clientRepository.deleteById(idClient);
-    }
+//    @Override
+//    public void deleteClient(int idClient) {
+//        clientRepository.deleteById(idClient);
+//    }
 }
