@@ -25,6 +25,5 @@ public class Client {
     @NonNull
     private String no_telephone;
 
-    //@DocumentReference
     private Adresse adresse;
 }

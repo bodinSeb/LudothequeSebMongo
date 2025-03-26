@@ -10,9 +10,6 @@ import org.springframework.data.annotation.Id;
 @RequiredArgsConstructor
 @Data
 public class Genre {
-    @Id
-    private String id_genre;
-
     @NonNull
     private String libelle;
 }

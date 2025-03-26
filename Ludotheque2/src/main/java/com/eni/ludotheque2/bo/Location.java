@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Data
+@Document("locations")
 public class Location {
     @Id
     private String id_location;
@@ -24,13 +26,10 @@ public class Location {
     @NonNull
     private float tarif_jour;
 
-//    @ManyToOne
-//    @NonNull
-//    @JoinColumn(name = "id_exemplaire", referencedColumnName = "id_exemplaire")
-//    private Exemplaire exemplaire;
-//
-//    @ManyToOne
-//    @NonNull
-//    @JoinColumn(name = "id_client", referencedColumnName = "id_client")
-//    private Client client;
+
+    @NonNull
+    private Exemplaire exemplaire;
+
+    @NonNull
+    private Client client;
 }

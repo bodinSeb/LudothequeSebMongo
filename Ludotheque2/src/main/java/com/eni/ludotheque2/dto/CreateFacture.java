@@ -6,6 +6,6 @@ import java.util.List;
 
 @Data
 public class CreateFacture {
-    private List<Integer> idsLoc;
-    private int idClient;
+    private List<String> idsLoc;
+    private String idClient;
 }

@@ -2,6 +2,7 @@ package com.eni.ludotheque2.bo;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +30,14 @@ public class Jeu {
     @NonNull
     private float tarif_jour;
 
-//    @ManyToMany
-//    @JoinTable(name = "Jeu_Genre",
-//            joinColumns = {@JoinColumn(name = "id_jeu")},
-//            inverseJoinColumns = {@JoinColumn(name = "id_genre")}
-//    )
-//    private List<Genre> genres =  new ArrayList<>();
-//
-//    public  void addGenre(Genre genre) {
-//        genres.add(genre);
-//    }
+    @Transient
+    private int nbExemplaire;
+
+    @Transient
+    private int nbExemplaireDispo;
+
+    @NonNull
+    private List<Genre> genres =  new ArrayList<>();
+
+
 }

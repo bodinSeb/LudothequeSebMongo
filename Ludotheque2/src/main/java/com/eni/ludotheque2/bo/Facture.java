@@ -22,6 +22,6 @@ public class Facture {
     @NonNull
     private Float montantFacture;
 
-//    @OneToMany
-//    private List<Location> locations;
+    @NonNull
+    private List<Location> locations;
 }
